@@ -1,0 +1,40 @@
+﻿Function GetOrdersGreaterThan(maxOrder)
+Dim dbConnection, dbQuery, dbResults
+
+'Create columns in the local action sheet in the datatable
+DataTable.GetSheet(2).AddParameter "OrderNo",""
+DataTable.GetSheet(2).AddParameter "Name",""
+DataTable.GetSheet(2).AddParameter "FlightNo",""
+DataTable.GetSheet(2).AddParameter "Tickets",""
+DataTable.GetSheet(2).AddParameter "Class",""
+
+'create and open a connection to a database
+Set dbConnection = Createobject("ADODB.Connection")
+dbConnection.Provider = "Microsoft.jet.oledb.4.0"
+dbConnection.Open("C:\Program Files (x86)\Micro Focus\Unified Functional Testing\samples\Flights Application\flight32.mdb")
+
+'create a result set and run a query to populate it with data
+dbQuery = "SELECT  Order_Number, Customer_Name, Flight_Number, Tickets_Ordered, Class " _
+		 & " FROM Orders" _
+		 & " WHERE Order_Number > " & maxOrder _
+		 & " ORDER BY Order_Number desc"
+Set dbResults = CreateObject("ADODB.Recordset")
+dbResults.Open dbQuery , dbConnection
+dbResults.MoveFirst
+recordCounter = 1
+ 
+Do Until dbResults.EOF
+	DataTable.SetCurrentRow recordCounter
+	DataTable("OrderNo",2) = dbResults.Fields("Order_Number")
+	DataTable("Name",2) = dbResults.Fields("Customer_Name")
+	DataTable("FlightNo",2) =dbResults.Fields("Flight_Number")
+	DataTable("Tickets",2) = dbResults.Fields("Tickets_Ordered")
+	DataTable("Class",2) = dbResults.Fields("Class")	
+	recordCounter = recordCounter + 1
+	dbResults.MoveNext
+Loop
+dbConnection.Close
+Set dbConnection = Nothing
+Set dbResults = Nothing
+
+End Function
