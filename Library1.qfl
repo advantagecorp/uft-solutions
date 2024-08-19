@@ -1,0 +1,9 @@
+﻿Function FutureDate(Object)
+	
+	Nextday = Date() + RandomNumber(1,10)
+	Nextdate = Day(Nextday) & Left(MonthName(Month(Nextday)),3) & "-" & Year(Nextday)
+	
+	WpfWindow("OpenText MyFlight Sample").WpfCalendar("datePicker").SetDate Nextdate
+	WpfWindow("OpenText MyFlight Sample").WpfButton("FIND FLIGHTS").Click
+	
+End Function
