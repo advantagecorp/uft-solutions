@@ -1,0 +1,140 @@
+2024-07-15 15:49:16,115 [1] INFO  - Loaded appender: FileAppenderExternal
+2024-07-15 15:49:16,121 [1] INFO  - Loaded appender: UserLoggerAppender
+2024-07-15 15:49:16,121 [1] INFO  - Loaded appender: FileAppenderInternal
+2024-07-15 15:49:16,122 [1] INFO  - Loaded appender: FileAppenderExternal
+2024-07-15 15:49:16,122 [1] INFO  - Loaded appender: UserLoggerAppender
+2024-07-15 15:49:16,122 [1] INFO  - Loaded appender: FileAppenderInternal
+2024-07-15 15:49:16,365 [17] INFO  - Step 'Start' : Step 'Start' started
+2024-07-15 15:49:16,390 [17] INFO  - Step 'Start' ended successfully
+2024-07-15 15:49:16,391 [17] INFO  - Step 'Increment Date2 days into the future' : Step 'Increment Date2 days into the future' started
+2024-07-15 15:49:16,399 [17] INFO  - Step 'Increment Date2 days into the future' : Input Parameter 'Original Date/Time', Value: '7/15/2024 3:49:16.000 PM'
+2024-07-15 15:49:16,402 [17] INFO  - Step 'Increment Date2 days into the future' : Input Parameter 'Units', Value: 'Days'
+2024-07-15 15:49:16,403 [17] INFO  - Step 'Increment Date2 days into the future' : Input Parameter 'Amount', Value: '2'
+2024-07-15 15:49:16,404 [17] INFO  - Step 'Increment Date2 days into the future' : Output Parameter 'Result', Value: '7/17/2024 3:49:16.000 PM'
+2024-07-15 15:49:16,407 [17] INFO  - Step 'Increment Date2 days into the future' ended successfully
+2024-07-15 15:49:16,408 [17] INFO  - Step 'Test Flow' : Step 'Test Flow' started
+2024-07-15 15:49:16,625 [17] INFO  - Step 'Iteration 1' : Step 'Iteration 1' started
+2024-07-15 15:49:16,627 [17] INFO  - Step 'GetFlights' : Step 'GetFlights' started
+2024-07-15 15:49:16,637 [17] INFO  - 
+Request:
+
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+  <Body>
+    <GetFlights xmlns="HP.SOAQ.SampleApp">
+      <DepartureCity>London</DepartureCity>
+      <ArrivalCity>Paris</ArrivalCity>
+      <FlightDate>2024-07-17T15:49:16</FlightDate>
+    </GetFlights>
+  </Body>
+</Envelope>
+
+2024-07-15 15:49:16,647 [17] INFO  - URL: http://localhost:8000/Flights_SOAP
+2024-07-15 15:49:16,667 [17] INFO  - Returning the response to the previous channel
+2024-07-15 15:49:16,671 [17] INFO  - 
+Response:
+
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Body>
+    <GetFlightsResponse xmlns="HP.SOAQ.SampleApp">
+      <GetFlightsResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+        <Flight>
+          <Airline>SR</Airline>
+          <ArrivalCity>Paris</ArrivalCity>
+          <ArrivalTime>04:19 PM</ArrivalTime>
+          <DepartureCity>London</DepartureCity>
+          <DepartureTime>02:39 PM</DepartureTime>
+          <FlightNumber>11468</FlightNumber>
+          <Price>142.2</Price>
+        </Flight>
+        <Flight>
+          <Airline>SR</Airline>
+          <ArrivalCity>Paris</ArrivalCity>
+          <ArrivalTime>01:55 PM</ArrivalTime>
+          <DepartureCity>London</DepartureCity>
+          <DepartureTime>12:15 PM</DepartureTime>
+          <FlightNumber>12430</FlightNumber>
+          <Price>153.4</Price>
+        </Flight>
+        <Flight>
+          <Airline>AF</Airline>
+          <ArrivalCity>Paris</ArrivalCity>
+          <ArrivalTime>10:00 AM</ArrivalTime>
+          <DepartureCity>London</DepartureCity>
+          <DepartureTime>08:00 AM</DepartureTime>
+          <FlightNumber>12502</FlightNumber>
+          <Price>166.5</Price>
+        </Flight>
+        <Flight>
+          <Airline>AF</Airline>
+          <ArrivalCity>Paris</ArrivalCity>
+          <ArrivalTime>12:24 PM</ArrivalTime>
+          <DepartureCity>London</DepartureCity>
+          <DepartureTime>10:24 AM</DepartureTime>
+          <FlightNumber>12506</FlightNumber>
+          <Price>162.9</Price>
+        </Flight>
+        <Flight>
+          <Airline>AF</Airline>
+          <ArrivalCity>Paris</ArrivalCity>
+          <ArrivalTime>02:48 PM</ArrivalTime>
+          <DepartureCity>London</DepartureCity>
+          <DepartureTime>12:48 PM</DepartureTime>
+          <FlightNumber>12510</FlightNumber>
+          <Price>165.6</Price>
+        </Flight>
+        <Flight>
+          <Airline>AF</Airline>
+          <ArrivalCity>Paris</ArrivalCity>
+          <ArrivalTime>05:12 PM</ArrivalTime>
+          <DepartureCity>London</DepartureCity>
+          <DepartureTime>03:12 PM</DepartureTime>
+          <FlightNumber>12514</FlightNumber>
+          <Price>163.6</Price>
+        </Flight>
+      </GetFlightsResult>
+    </GetFlightsResponse>
+  </s:Body>
+</s:Envelope>
+
+2024-07-15 15:49:16,682 [17] INFO  - Structural Validation: True
+2024-07-15 15:49:16,686 [17] INFO  - Step 'GetFlights' ended successfully
+2024-07-15 15:49:16,688 [17] INFO  - Step 'CreateFlightOrder' : Step 'CreateFlightOrder' started
+2024-07-15 15:49:16,691 [17] INFO  - 
+Request:
+
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/" xmlns:p1="http://www.w3.org/2001/XMLSchema-instance">
+  <Body>
+    <CreateFlightOrder xmlns="HP.SOAQ.SampleApp">
+      <FlightOrder>
+        <Class>Business</Class>
+        <CustomerName>John Jackson</CustomerName>
+        <DepartureDate>2024-07-17T15:49:16</DepartureDate>
+        <FlightNumber>11468</FlightNumber>
+        <NumberOfTickets>2</NumberOfTickets>
+      </FlightOrder>
+    </CreateFlightOrder>
+  </Body>
+</Envelope>
+
+2024-07-15 15:49:16,694 [17] INFO  - URL: http://localhost:8000/Flights_SOAP
+2024-07-15 15:49:16,700 [17] INFO  - Returning the response to the previous channel
+2024-07-15 15:49:16,715 [17] INFO  - 
+Response:
+
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Body>
+    <CreateFlightOrderResponse xmlns="HP.SOAQ.SampleApp">
+      <CreateFlightOrderResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+        <OrderNumber>106</OrderNumber>
+        <TotalPrice>568.8</TotalPrice>
+      </CreateFlightOrderResult>
+    </CreateFlightOrderResponse>
+  </s:Body>
+</s:Envelope>
+
+2024-07-15 15:49:16,719 [17] INFO  - Structural Validation: True
+2024-07-15 15:49:16,721 [17] INFO  - Step 'CreateFlightOrder' ended successfully
+2024-07-15 15:49:16,724 [17] INFO  - Step 'Iteration 1' ended successfully
+2024-07-15 15:49:16,725 [17] INFO  - Step 'Test Flow' ended successfully
+2024-07-15 15:49:16,838 [17] INFO  - Step 'End' : Step 'End' started
+2024-07-15 15:49:16,845 [17] INFO  - Step 'End' ended successfully
