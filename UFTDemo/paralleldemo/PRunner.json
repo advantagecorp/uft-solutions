@@ -1,0 +1,36 @@
+{
+  "ReportPath": "C:\\Users\\demo\\Desktop",
+  "ReportName": "PRunner",
+  "ParallelRuns": [
+    {
+      "TestRunName": "1",
+      "Test": "C:\\UFTDemo\\paralleldemo\\paralleldemo",
+      "Env": {
+        "Web": {
+          "Browser": "Chrome"
+        }
+      },
+      "ReportSuffix": "run-1"
+    },
+    {
+      "TestRunName": "2",
+      "Test": "C:\\UFTDemo\\paralleldemo\\paralleldemo",
+      "Env": {
+        "Web": {
+          "Browser": "Firefox64"
+        }
+      },
+      "ReportSuffix": "run-2"
+    },
+    {
+      "TestRunName": "3",
+      "Test": "C:\\UFTDemo\\paralleldemo\\paralleldemo",
+      "Env": {
+        "Web": {
+          "Browser": "ChromiumEdge"
+        }
+      },
+      "ReportSuffix": "run-3"
+    }
+  ]
+}
