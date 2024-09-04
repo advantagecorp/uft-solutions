@@ -1,0 +1,1 @@
+﻿var __testDataSource={items:[{dataFilePath:'Default.xlsx',dataFileFormat:'excel',dataFileFolder:'C:\\Users\\demo\\Documents\\Unified Functional Testing\\AOS_UFT_WEB_Regression\\Res1',namePairs:[]}]};
